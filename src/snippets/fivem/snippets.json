@@ -1,0 +1,117 @@
+{
+  "Register Command": {
+    "prefix": "regcmd",
+    "body": [
+      "RegisterCommand('${1:command}', function(source, args, rawCommand)",
+      "    ${2:-- your code here}",
+      "end, false)"
+    ],
+    "description": "Register a FiveM server command"
+  },
+  "Trigger Client Event": {
+    "prefix": "trigc",
+    "body": [
+      "TriggerClientEvent('${1:event}', ${2:target}, ${3:args})"
+    ],
+    "description": "Trigger a client event"
+  },
+  "Trigger Server Event": {
+    "prefix": "trigs",
+    "body": [
+      "TriggerServerEvent('${1:event}', ${2:args})"
+    ],
+    "description": "Trigger a server event"
+  },
+  "Register NUI Callback": {
+    "prefix": "nuicb",
+    "body": [
+      "RegisterNUICallback('${1:callback}', function(data, cb)",
+      "    ${2:-- handle NUI data}",
+      "    cb('${3:response}')",
+      "end)"
+    ],
+    "description": "Register a callback from NUI"
+  },
+  "Send NUI Message": {
+    "prefix": "sendnui",
+    "body": [
+      "SendNUIMessage({",
+      "    type = '${1:type}',",
+      "    ${2:dataKey} = '${3:dataValue}'",
+      "})"
+    ],
+    "description": "Send a message to NUI"
+  },
+  "Set NUI Focus": {
+    "prefix": "nuifocus",
+    "body": [
+      "SetNuiFocus(${1:true}, ${2:true})"
+    ],
+    "description": "Set NUI focus"
+  },
+  "Get Player Ped": {
+    "prefix": "getped",
+    "body": [
+      "local ped = GetPlayerPed(-1)"
+    ],
+    "description": "Get the current player's ped"
+  },
+  "Spawn Vehicle": {
+    "prefix": "spawnveh",
+    "body": [
+      "local vehicleName = '${1:adder}'",
+      "RequestModel(GetHashKey(vehicleName))",
+      "while not HasModelLoaded(GetHashKey(vehicleName)) do",
+      "    Wait(0)",
+      "end",
+      "local x, y, z = table.unpack(GetEntityCoords(PlayerPedId()))",
+      "local vehicle = CreateVehicle(GetHashKey(vehicleName), x, y, z + 1, GetEntityHeading(PlayerPedId()), true, false)"
+    ],
+    "description": "Spawn a vehicle"
+  },
+  "Draw Text 3D": {
+    "prefix": "draw3d",
+    "body": [
+      "function DrawText3D(x, y, z, text)",
+      "    local onScreen, _x, _y = World3dToScreen2d(x, y, z)",
+      "    local px, py, pz = table.unpack(GetGameplayCamCoords())",
+      "    local dist = GetDistanceBetweenCoords(px, py, pz, x, y, z, 1)",
+      "",
+      "    local scale = (1 / dist) * 2",
+      "    local fov = (1 / GetGameplayCamFov()) * 100",
+      "    scale = scale * fov",
+      "",
+      "    if onScreen then",
+      "        SetTextScale(0.0, 0.35 * scale)",
+      "        SetTextFont(0)",
+      "        SetTextProportional(1)",
+      "        SetTextColour(255, 255, 255, 215)",
+      "        SetTextEntry(\"STRING\")",
+      "        SetTextCentre(true)",
+      "        AddTextComponentString(text)",
+      "        DrawText(_x, _y)",
+      "    end",
+      "end"
+    ],
+    "description": "Draw 3D text in the world"
+  },
+
+
+   "Get Player From Id [ESX Server]": {
+    "prefix": "esxfrid",
+    "body": [
+      "local xPlayer = ESX.GetPlayerFromId(source)"
+    ],
+    "description": "Get the current player's ped"
+  },
+
+   "Get Player PlayerData [ESX Server]": {
+    "prefix": "esxpdata",
+    "body": [
+      "local playerData = ESX.GetPlayerData()"
+    ],
+    "description": "Get the current player's ped"
+  },
+
+  
+}
