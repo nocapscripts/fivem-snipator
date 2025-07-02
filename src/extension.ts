@@ -1,59 +1,63 @@
 import * as vscode from 'vscode';
-import * as fs from 'fs/promises'; // use promise-based fs
+import * as fs from 'fs/promises';
 import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('FiveM Snipator Activated!');
 
-  // Register a simple command to confirm activation
-  const disposable = vscode.commands.registerCommand('fivemsnipator.init', () => {
-    vscode.window.showInformationMessage('Extension is activated!');
-  });
-  context.subscriptions.push(disposable);
+  // This command enables snippets when manually called
+  const initCommand = vscode.commands.registerCommand('fivemsnipator.init', async () => {
+    vscode.window.showInformationMessage('FiveM Snipator snippet system activated!');
 
-  // Helper to create snippet completion provider from a snippet JSON file
-  const registerSnippetProvider = (fileName: string) => {
-    return vscode.languages.registerCompletionItemProvider(
-      'lua',
+    const loadSnippets = async (filePath: string): Promise<vscode.CompletionItem[]> => {
+      const items: vscode.CompletionItem[] = [];
+
+      try {
+        await fs.access(filePath);
+        const content = await fs.readFile(filePath, 'utf8');
+        const snippets = JSON.parse(content);
+
+        for (const [name, snippet] of Object.entries<any>(snippets)) {
+          const item = new vscode.CompletionItem(snippet.prefix, vscode.CompletionItemKind.Snippet);
+          item.detail = snippet.description || name;
+          const body = Array.isArray(snippet.body) ? snippet.body.join('\n') : snippet.body;
+          item.insertText = new vscode.SnippetString(body);
+          item.documentation = new vscode.MarkdownString(`**${name}**\n\n${snippet.description || ''}`);
+          items.push(item);
+        }
+      } catch (err) {
+        console.warn(`Failed to load snippets from ${filePath}:`, err);
+      }
+
+      return items;
+    };
+
+    // Register the actual provider
+    const provider = vscode.languages.registerCompletionItemProvider(
+      { language: 'lua' },
       {
-        async provideCompletionItems(document, position) {
-          console.log('Current languageId:', document.languageId);
-          console.log('Extension path:', context.extensionPath);
+        async provideCompletionItems() {
+          const allItems: vscode.CompletionItem[] = [];
 
-          const snippetFile = path.join(context.extensionPath, 'src/snippets', fileName);
-          const items: vscode.CompletionItem[] = [];
+          const basePath = path.join(context.extensionPath, 'snippets');
+          const snippetFiles = ['esx.json', 'nc.json', 'qb.json'];
 
-          try {
-            // Check if snippet file exists and read snippets
-            await fs.access(snippetFile);
-            const content = await fs.readFile(snippetFile, 'utf8');
-            const snippets = JSON.parse(content);
-
-            for (const [name, snippet] of Object.entries<any>(snippets)) {
-              const item = new vscode.CompletionItem(snippet.prefix, vscode.CompletionItemKind.Snippet);
-              item.detail = snippet.description || name;
-              const body = Array.isArray(snippet.body) ? snippet.body.join('\n') : snippet.body;
-              item.insertText = new vscode.SnippetString(body);
-              item.documentation = new vscode.MarkdownString(`**${name}**\n\n${snippet.description || ''}`);
-              items.push(item);
-            }
-          } catch (err) {
-            console.warn(`Failed to load snippets from ${snippetFile}:`, err);
+          for (const fileName of snippetFiles) {
+            const filePath = path.join(basePath, fileName);
+            const items = await loadSnippets(filePath);
+            allItems.push(...items);
           }
 
-          return items;
+          return allItems;
         }
       },
-      'e' // Trigger character for suggestions, adjust as needed
+      'e', 'n', 'q'
     );
-  };
 
-  // Register snippet providers for different snippet sets
-  const esxSnippets = registerSnippetProvider('esx.json');
-  const ncSnippets = registerSnippetProvider('nc.json');
-  const qbSnippets = registerSnippetProvider('qb.json');
+    context.subscriptions.push(provider);
+  });
 
-  context.subscriptions.push(esxSnippets, ncSnippets, qbSnippets);
+  context.subscriptions.push(initCommand);
 }
 
 export function deactivate() {}

@@ -74,5 +74,12 @@
       "xPlayer.removeMoney(${1:amount})"
     ],
     "description": "Remove money from player"
+  },
+  "NC Get user Faction [Server]": {
+    "prefix": "ncgf",
+    "body": [
+      "xPlayer.getFaction(${1:id})"
+    ],
+    "description": "Remove money from player"
   }
 }

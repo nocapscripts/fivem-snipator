@@ -5,7 +5,6 @@
   "icon": "image/logo.png",
   "description": "Simple Fivem Automation Snipator",
   "version": "1.0.4",
-
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -49,75 +48,118 @@
     "languages": [
       {
         "id": "lua",
-        "extensions": [".lua"],
-        "aliases": ["Lua", "FiveM Lua"],
+        "extensions": [
+          ".lua"
+        ],
+        "aliases": [
+          "Lua",
+          "FiveM Lua"
+        ],
         "configuration": "./language-configurations/lua.json"
       },
       {
         "id": "javascript",
-        "extensions": [".js"],
-        "aliases": ["JavaScript", "JS"],
+        "extensions": [
+          ".js"
+        ],
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ],
         "configuration": "./language-configurations/javascript.json"
       },
       {
         "id": "typescript",
-        "extensions": [".ts", ".tsx"],
-        "aliases": ["TypeScript", "TS", "TSX"],
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ],
+        "aliases": [
+          "TypeScript",
+          "TS",
+          "TSX"
+        ],
         "configuration": "./language-configurations/typescript.json"
       },
       {
         "id": "csharp",
-        "extensions": [".cs"],
-        "aliases": ["C#", "CS"],
+        "extensions": [
+          ".cs"
+        ],
+        "aliases": [
+          "C#",
+          "CS"
+        ],
         "configuration": "./language-configurations/csharp.json"
       },
       {
         "id": "json",
-        "extensions": [".json"],
-        "aliases": ["JSON"],
+        "extensions": [
+          ".json"
+        ],
+        "aliases": [
+          "JSON"
+        ],
         "configuration": "./language-configurations/json.json"
       },
       {
         "id": "html",
-        "extensions": [".html"],
-        "aliases": ["HTML"],
+        "extensions": [
+          ".html"
+        ],
+        "aliases": [
+          "HTML"
+        ],
         "configuration": "./language-configurations/html.json"
       },
       {
         "id": "css",
-        "extensions": [".css"],
-        "aliases": ["CSS"],
+        "extensions": [
+          ".css"
+        ],
+        "aliases": [
+          "CSS"
+        ],
         "configuration": "./language-configurations/css.json"
       },
       {
         "id": "yaml",
-        "extensions": [".yaml", ".yml"],
-        "aliases": ["YAML"],
+        "extensions": [
+          ".yaml",
+          ".yml"
+        ],
+        "aliases": [
+          "YAML"
+        ],
         "configuration": "./language-configurations/yaml.json"
       },
       {
         "id": "sql",
-        "extensions": [".sql"],
-        "aliases": ["SQL"],
+        "extensions": [
+          ".sql"
+        ],
+        "aliases": [
+          "SQL"
+        ],
         "configuration": "./language-configurations/sql.json"
       }
     ],
     "snippets": [
       {
         "language": "lua",
-        "path": "./src/snippets/esx.json"
+        "path": "./snippets/esx.json"
       },
       {
         "language": "lua",
-        "path": "./src/snippets/qb.json"
+        "path": "./snippets/qb.json"
       },
       {
         "language": "lua",
-        "path": "./src/snippets/nc.json"
+        "path": "./snippets/nc.json"
       },
       {
         "language": "lua",
-        "path": "./src/snippets/fivem.json"
+        "path": "./snippets/fivem.json"
       }
     ],
     "commands": [
@@ -139,17 +181,18 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.101.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.101.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
-    "eslint": "^9.25.1",
-    "typescript": "^5.8.3",
-    "ts-loader": "^9.5.2",
-    "webpack": "^5.99.7",
-    "webpack-cli": "^6.0.1",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "eslint": "^9.25.1",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.7",
+    "webpack-cli": "^6.0.1"
   }
 }
