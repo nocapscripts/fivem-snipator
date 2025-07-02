@@ -1,59 +1,71 @@
-# fivemsnipator README
+# fivemsnipator
 
-This is the README for your extension "fivemsnipator". After writing up a brief description, we recommend including the following sections.
+**fivemsnipator** is a VS Code extension designed to enhance your FiveM development experience by providing useful snippets and tools tailored for scripting in the FiveM framework.
+
+---
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Collection of handy snippets for Lua, JavaScript, and C# tailored for FiveM development.
+- Quickly insert common FiveM server/client script patterns.
+- Improve coding speed and reduce boilerplate.
+- Supports multiple languages used in FiveM scripting.
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
+![fivemsnipator in action](images/fivemsnipator-demo.gif)
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
+---
+
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code (latest version recommended)
+- Basic knowledge of FiveM scripting
+- Lua, JavaScript, or C# development environment set up for FiveM
+
+No additional dependencies required.
+
+---
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+* `fivemsnipator.enable`: Enable or disable the extension features (default: `true`).
+* `fivemsnipator.language`: Set your preferred language snippets (`lua`, `js`, `csharp`).
+
+---
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Snippets may occasionally conflict with other snippet extensions. Disable other conflicting snippet extensions if issues arise.
+- Limited snippet coverage for some edge-case FiveM API calls.
+
+---
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+- Initial release of fivemsnipator with Lua, JS, and C# snippet support for FiveM scripting.
 
 ### 1.0.1
 
-Fixed issue #.
+- Fixed snippet conflicts and improved snippet trigger accuracy.
 
 ### 1.1.0
 
-Added features X, Y, and Z.
+- Added new snippets for client-server event handling and improved documentation snippets.
 
 ---
 
 ## Following extension guidelines
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+Ensure that you've read through the extension guidelines and follow best practices for creating your extension.
 
 * [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+
+---
 
 ## Working with Markdown
 
@@ -62,6 +74,8 @@ You can author your README using Visual Studio Code. Here are some useful editor
 * Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
 * Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
 * Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+
+---
 
 ## For more information
 

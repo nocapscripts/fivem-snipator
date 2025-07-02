@@ -1,5 +1,5 @@
 {
-  "Register Command": {
+    "Register Command": {
     "prefix": "regcmd",
     "body": [
       "RegisterCommand('${1:command}', function(source, args, rawCommand)",
@@ -94,24 +94,5 @@
       "end"
     ],
     "description": "Draw 3D text in the world"
-  },
-
-
-   "Get Player From Id [ESX Server]": {
-    "prefix": "esxfrid",
-    "body": [
-      "local xPlayer = ESX.GetPlayerFromId(source)"
-    ],
-    "description": "Get the current player's ped"
-  },
-
-   "Get Player PlayerData [ESX Server]": {
-    "prefix": "esxpdata",
-    "body": [
-      "local playerData = ESX.GetPlayerData()"
-    ],
-    "description": "Get the current player's ped"
-  },
-
-  
+  }
 }

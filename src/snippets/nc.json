@@ -1,0 +1,78 @@
+{
+  
+  "Get Player From Id [NC Server]": {
+    "prefix": "ncfrid",
+    "body": [
+      "local xPlayer = NC.GetPlayerFromId(source)"
+    ],
+    "description": "Get player data from ID"
+  },
+  "Get Player PlayerData [NC Server]": {
+    "prefix": "ncpdata",
+    "body": [
+      "local playerData = NC.GetPlayerData()"
+    ],
+    "description": "Get the current player's ped"
+  },
+  "Add Inventory Item [NC Server]": {
+    "prefix": "ncadditem",
+    "body": [
+      "xPlayer.addInventoryItem('${1:item}', ${2:amount})"
+    ],
+    "description": "Add item to player's inventory"
+  },
+  "Remove Inventory Item [NC Server]": {
+    "prefix": "ncremoveitem",
+    "body": [
+      "xPlayer.removeInventoryItem('${1:item}', ${2:amount})"
+    ],
+    "description": "Remove item from player's inventory"
+  },
+  "Get Item Count [NC Server]": {
+    "prefix": "ncgetitem",
+    "body": [
+      "local count = xPlayer.getInventoryItem('${1:item}').count"
+    ],
+    "description": "Get the amount of a specific inventory item"
+  },
+  "NC Trigger Server Callback [Client]": {
+    "prefix": "ncscb",
+    "body": [
+      "NC.TriggerServerCallback('${1:eventName}', function(${2:result})",
+      "    ${3:-- handle callback result here}",
+      "end, ${4:args})"
+    ],
+    "description": "Trigger a server callback from client"
+  },
+  "NC Register Server Callback [Server]": {
+    "prefix": "ncrscb",
+    "body": [
+      "NC.RegisterServerCallback('${1:eventName}', function(source, cb, ${2:args})",
+      "    ${3:-- perform logic and call cb()}",
+      "end)"
+    ],
+    "description": "Register a server-side ESX callback"
+  },
+  "NC Show Notification [Client]": {
+    "prefix": "ncnotify",
+    "body": [
+      "NC.ShowNotification('', 'info', 6000)"
+      
+    ],
+    "description": "Show a notification to the player"
+  },
+  "NC Add Money [Server]": {
+    "prefix": "ncaddmoney",
+    "body": [
+      "xPlayer.addMoney(${1:amount})"
+    ],
+    "description": "Add money to player"
+  },
+  "NC Remove Money [Server]": {
+    "prefix": "ncremmoney",
+    "body": [
+      "xPlayer.removeMoney(${1:amount})"
+    ],
+    "description": "Remove money from player"
+  }
+}

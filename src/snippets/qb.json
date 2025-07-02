@@ -1,0 +1,69 @@
+{
+  "QBCore Register Command": {
+    "prefix": "qregcmd",
+    "body": [
+      "QBCore.Commands.Add('${1:command}', '${2:description}', {}, function(source, args)",
+      "    ${3:-- your code here}",
+      "end)"
+    ],
+    "description": "Register a QBCore command"
+  },
+  "QBCore Trigger Client Event": {
+    "prefix": "qtrigc",
+    "body": [
+      "TriggerClientEvent('${1:event}', ${2:target}, ${3:args})"
+    ],
+    "description": "Trigger a client event in QBCore"
+  },
+  "QBCore Trigger Server Event": {
+    "prefix": "qtrigs",
+    "body": [
+      "TriggerServerEvent('${1:event}', ${2:args})"
+    ],
+    "description": "Trigger a server event in QBCore"
+  },
+  "QBCore Register Net Event": {
+    "prefix": "qregnete",
+    "body": [
+      "RegisterNetEvent('${1:event}')",
+      "AddEventHandler('${1:event}', function(${2:args})",
+      "    ${3:-- your code here}",
+      "end)"
+    ],
+    "description": "Register a network event in QBCore"
+  },
+  "QBCore Get Player From Id": {
+    "prefix": "qgetplayer",
+    "body": [
+      "local Player = QBCore.Functions.GetPlayer(${1:source})"
+    ],
+    "description": "Get player data from source ID in QBCore"
+  },
+  "QBCore Send NUI Message": {
+    "prefix": "qsendnui",
+    "body": [
+      "SendNUIMessage({",
+      "    type = '${1:type}',",
+      "    ${2:dataKey} = '${3:dataValue}'",
+      "})"
+    ],
+    "description": "Send a message to NUI in QBCore"
+  },
+  "QBCore Set NUI Focus": {
+    "prefix": "qnuifocus",
+    "body": [
+      "SetNuiFocus(${1:true}, ${2:true})"
+    ],
+    "description": "Set NUI focus in QBCore"
+  },
+  "QBCore Spawn Vehicle": {
+    "prefix": "qspawnveh",
+    "body": [
+      "local vehicleName = '${1:adder}'",
+      "QBCore.Functions.SpawnVehicle(vehicleName, function(vehicle)",
+      "    TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)",
+      "end)"
+    ],
+    "description": "Spawn a vehicle in QBCore"
+  }
+}

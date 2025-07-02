@@ -1,21 +1,117 @@
 {
   "name": "fivemsnipator",
+  "publisher": "NoCapScripts",
   "displayName": "FiveM Snipator",
-  "description": "Simple Fivem Automation Snipator ",
-  "version": "0.0.1",
+  "icon": "image/logo.png",
+  "description": "Simple Fivem Automation Snipator",
+  "version": "1.0.1",
+
   "engines": {
     "vscode": "^1.101.0"
   },
+  "author": {
+    "name": "NoCapScripts",
+    "email": "your-email@example.com",
+    "url": "https://github.com/nocapscsripts"
+  },
+  "license": "GNU General Public License v3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nocapscsripts/fivem-builder"
+  },
+  "bugs": {
+    "url": "https://github.com/nocapscsripts/fivem-builder/issues"
+  },
+  "homepage": "https://github.com/nocapscsripts/fivem-builder#readme",
   "categories": [
+    "Snippets",
+    "Formatters",
+    "Extension Packs",
     "Other"
   ],
-  "activationEvents": [],
+  "keywords": [
+    "fivem",
+    "cfxre",
+    "cfx",
+    "resource",
+    "generator",
+    "gtav",
+    "lua",
+    "javascript",
+    "typescript",
+    "csharp"
+  ],
+  "activationEvents": [
+   
+  ],
   "main": "./dist/extension.js",
   "contributes": {
+    "languages": [
+      {
+        "id": "lua",
+        "extensions": [".lua"],
+        "aliases": ["Lua", "FiveM Lua"],
+        "configuration": "./language-configurations/lua.json"
+      },
+      {
+        "id": "javascript",
+        "extensions": [".js"],
+        "aliases": ["JavaScript", "JS"],
+        "configuration": "./language-configurations/javascript.json"
+      },
+      {
+        "id": "typescript",
+        "extensions": [".ts", ".tsx"],
+        "aliases": ["TypeScript", "TS", "TSX"],
+        "configuration": "./language-configurations/typescript.json"
+      },
+      {
+        "id": "csharp",
+        "extensions": [".cs"],
+        "aliases": ["C#", "CS"],
+        "configuration": "./language-configurations/csharp.json"
+      },
+      {
+        "id": "json",
+        "extensions": [".json"],
+        "aliases": ["JSON"],
+        "configuration": "./language-configurations/json.json"
+      },
+      {
+        "id": "html",
+        "extensions": [".html"],
+        "aliases": ["HTML"],
+        "configuration": "./language-configurations/html.json"
+      },
+      {
+        "id": "css",
+        "extensions": [".css"],
+        "aliases": ["CSS"],
+        "configuration": "./language-configurations/css.json"
+      },
+      {
+        "id": "yaml",
+        "extensions": [".yaml", ".yml"],
+        "aliases": ["YAML"],
+        "configuration": "./language-configurations/yaml.json"
+      },
+      {
+        "id": "sql",
+        "extensions": [".sql"],
+        "aliases": ["SQL"],
+        "configuration": "./language-configurations/sql.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "lua",
+        "path": "./snippets/esxsnippets.json"
+      }
+    ],
     "commands": [
       {
         "command": "fivemsnipator.helloWorld",
-        "title": "Hello World"
+        "title": "Hello World from FiveM Snipator"
       }
     ]
   },
