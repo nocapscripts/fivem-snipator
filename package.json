@@ -4,7 +4,7 @@
   "displayName": "FiveM Snipator",
   "icon": "image/logo.png",
   "description": "Simple Fivem Automation Snipator",
-  "version": "1.0.2",
+  "version": "1.0.4",
 
   "engines": {
     "vscode": "^1.101.0"
@@ -42,7 +42,7 @@
     "csharp"
   ],
   "activationEvents": [
-   
+    "fivemsnipator.init"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -105,13 +105,25 @@
     "snippets": [
       {
         "language": "lua",
-        "path": "./snippets/esxsnippets.json"
+        "path": "./src/snippets/esx.json"
+      },
+      {
+        "language": "lua",
+        "path": "./src/snippets/qb.json"
+      },
+      {
+        "language": "lua",
+        "path": "./src/snippets/nc.json"
+      },
+      {
+        "language": "lua",
+        "path": "./src/snippets/fivem.json"
       }
     ],
     "commands": [
       {
-        "command": "fivemsnipator.helloWorld",
-        "title": "Hello World from FiveM Snipator"
+        "command": "fivemsnipator.init",
+        "title": "Test Snipator"
       }
     ]
   },
