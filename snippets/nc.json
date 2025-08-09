@@ -81,5 +81,14 @@
       "xPlayer.getFaction(${1:id})"
     ],
     "description": "Remove money from player"
+  },
+
+
+  "NC Get Player Identifier [Server]": {
+    "prefix": "ncgetidentifier",
+    "body": [
+      "local identifier = NC.GetIdentifier(source, 'steam')"
+    ],
+    "description": "Get  Player identifier [Server]"
   }
 }

@@ -116,6 +116,15 @@
     ],
     "description": "Add item to player's inventory"
   },
+  "Register Add Inventory Item [ESX Event]": {
+    "prefix": "esxadditem2",
+    "body": [ 
+      " RegisterNetEvent('esx:addInventoryItem', function(item, count)",
+       " print(string.format('You have received %sx %s', count, item))",
+      "end) "
+    ],
+    "description": "Register Add item event"
+  },
   "Remove Inventory Item [ESX Server]": {
     "prefix": "esxremoveitem",
     "body": [
@@ -168,5 +177,44 @@
       "xPlayer.removeMoney(${1:amount})"
     ],
     "description": "Remove money from player"
+  },
+  "ESX PlayerLoaded": {
+    "prefix" :"esxplloaded",
+    "body" : [
+      "AddEventHandler('esx:playerLoaded', function (xPlayer, skin)",
+      " // Data flow here",
+      "end)"
+    ]
+  },
+
+  "ESX OnPlayerDeath": {
+    "prefix" :"esxpldeath",
+    "body" : [
+      "AddEventHandler('esx:onPlayerDeath', function (data)",
+      " print(string.format('You were killed by %s from %s meters away.', data.killerServerId, data.distance))",
+      "end)" 
+    ]
+  },
+
+
+   "ESX OnPlayerSpawn": {
+    "prefix" :"esxplspawn",
+    "body" : [
+     "AddEventHandler('esx:onPlayerSpawn', function ()",
+     "  print('Player successfully loaded and his ped spawned.')",
+     "end)"
+    ]
+  },
+
+
+   "ESX SetJob": {
+    "prefix" :"esxsetjob",
+    "body" : [
+    " RegisterNetEvent('esx:setJob')",
+    "AddEventHandler('esx:setJob', function(job,lastJob)",
+    " print('Player changed job! New job name: ' .. job.name .. ' Last job name: ' .. lastJob.name)",
+    "end)"
+    ]
   }
+
 }
